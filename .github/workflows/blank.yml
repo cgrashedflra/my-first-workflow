@@ -1,0 +1,16 @@
+
+name: Cron schedule for bookings
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hit booking cron
+        run: |
+          curl -X POST http:///internal/cron/booking-status \
+          -H "x-secret: ${{ secrets.CRON_SECRET }}"
+
