@@ -11,6 +11,6 @@ jobs:
     steps:
       - name: Hit booking cron
         run: |
-          curl -X POST http:///internal/cron/booking-status \
+          curl -X POST https://vehicle-rental-system-api-amber.vercel.app/internal/cron/booking-status \
           -H "x-secret: ${{ secrets.CRON_SECRET }}"
 
